@@ -1,4 +1,324 @@
-# TASTY-BITES
-🍽️ Tasty Bites – A modern restaurant website built using pure HTML and CSS. Showcasing menu, gallery, chef intro, and restaurant tour video — fully responsive, simple, and elegant design by Ansh Thakar.
-<br>
-AUTHOR - ANSH THAKAR
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tasty Bites Restaurant – Delicious food, cozy atmosphere and friendly service in Mumbai!">
+    <title>Tasty Bites Restaurant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: orangered;
+        }
+        header {
+            background-color: white;
+            color: orangered;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: orangered;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .banner {
+            background-size: cover;
+            background-position: center;
+            background-color: orangered;
+            color: white;
+            text-align: center;
+            padding: 100px 0 20px;
+            min-height: 280px;
+            min-width: 300px;
+            position: relative;
+        }
+        .banner p {
+            color: white;
+        }
+        .video-section {
+            text-align: center;
+            margin: 40px 0;
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 40px auto;
+            width: 80%;
+        }
+        .audio-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .about-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            margin: 40px auto;
+            border-radius: 12px;
+            width: 800px;
+        }
+        .about-image {
+            width: 300px;
+            height: 200px;
+            border-radius: 12px;
+            margin-right: 20px;
+            border: 4px solid orangered;
+            object-fit: cover;
+        }
+        #menu {
+            margin-top: 40px;
+        }
+        h2 {
+            color: white;
+            text-align: center;
+            margin-top: 4px;
+        }
+        p {
+            color: orangered;
+            text-align: center;
+            font-size: 20px;
+        }
+        .menu-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin: 25px 0 35px;
+        }
+        .card {
+            background-color: white;
+            border: 2px solid orangered;
+            border-radius: 12px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-bottom: 10px;
+            color: orangered;
+        }
+        .card p {
+            font-size: 18px;
+            font-weight: bold;
+            color: orangered;
+        }
+        .gallery-grid {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 40px 40px;
+            width: calc(100% - 80px);
+        }
+        .gallery-item {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+        }
+        form {
+            max-width: 400px;
+            margin: 20px auto 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: orangered;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid orangered;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: orangered;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        footer {
+            background-color: white;
+            color: orangered;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Music Player -->
+    
+
+    <header>
+        <h1><b>🍽 TASTY BITES</b></h1>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#menu">MENU</a>
+            <a href="#gallery">GALLERY</a>
+            <a href="#video">VIDEO</a>
+            <a href="#contact">CONTACT US</a>
+        </nav>
+    </header>
+
+    <section id="home" class="banner">
+        <h2>Welcome to TASTY BITES</h2>
+        <p>Delicious food, cozy atmosphere and friendly service</p>
+    </section>
+
+    <!-- Restaurant Video Section -->
+    <section id="video" class="video-section">
+        <h2 style="color: orangered;">Our Restaurant Experience</h2>
+        <video width="100%" height="400" controls poster="restaurant-poster.jpg">
+            <source src="bites99.mp4" type="video/mp4">
+            <source src="restaurant-tour.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+        <p style="margin-top: 15px;">Take a virtual tour of our restaurant!</p>
+    </section>
+
+    <section id="about">
+        <div class="about-card">
+            <img src="logo1.png.jpg" alt="chef" class="about-image">
+            <div>
+                <h2>About TASTY BITES</h2>
+                <p>Established in 2025, TASTY BITES brings Mumbai's flavours with modern twist! Our chef believes fresh, local ingredients make every bite memorable.</p>
+                
+                <!-- Chef Introduction Audio -->
+                <audio controls style="margin-top: 15px;">
+                    <source src="bites9.mp3" type="audio/mpeg">
+                    Listen to our chef's story
+                </audio>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-cards">
+            <div class="card">
+                <h3>White Sauce Pasta</h3>
+                <p>₹199</p>
+            </div>
+            <div class="card">
+                <h3>Veg Paradise Pizza</h3>
+                <p>₹349</p>
+            </div>
+            <div class="card">
+                <h3>Chocolate Brownie</h3>
+                <p>₹119</p>
+            </div>
+            <div class="card">
+                <h3>Oreo Milkshake</h3>
+                <p>₹149</p>
+            </div>
+            <div class="card">
+                <h3>Mojito</h3>
+                <p>₹129</p>
+            </div>
+            <div class="card">
+                <h3>Fries</h3>
+                <p>₹169</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="FOOD6.png" alt="WHITE SAUCE PASTA">
+                <div class="gallery-caption">White Sauce Pasta</div>
+            </div>
+            <div class="gallery-item">
+                <img src="food2.png" alt="VEG PARADISE PIZZA">
+                <div class="gallery-caption">Veg Paradise Pizza</div>
+            </div>
+            <div class="gallery-item">
+                <img src="FOOD3.jpg" alt="CHOCOLATE BROWNIE">
+                <div class="gallery-caption">Chocolate Brownie</div>
+            </div>
+            <div class="gallery-item">
+                <img src="FOOD4.jpg" alt="FRIES">
+                <div class="gallery-caption">Fries</div>
+            </div>
+            <div class="gallery-item">
+                <img src="FOOD5.jpg" alt="MOJITO">
+                <div class="gallery-caption">Mojito</div>
+            </div>
+            <div class="gallery-item">
+                <img src="food1.png" alt="OREO MILKSHAKE">
+                <div class="gallery-caption">Oreo Milkshake</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label>Name:</label>
+            <input type="text" required>
+            <label>Email:</label>
+            <input type="email" required>
+            <label>Message:</label>
+            <textarea rows="3" required></textarea>
+            <button type="submit">Send</button>
+            <br>
+            <br>
+            <br>
+            <button type="button">ORDER NOW</button>
+
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; TASTY BITES | All rights reserved</p>
+    </footer>
+</body>
+</html>
